@@ -33,3 +33,30 @@ axios
   });
 
 // make card
+function cardMaker(object) {
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const imgContainer = document.createElement("div");
+  const img = document.createElement("img");
+  const authorName = document.createElement("span");
+
+  //appends
+  card.append(headline, author);
+  author.append(imgContainer, authorName);
+  imgContainer.append(img);
+
+  //classes
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("author");
+  imgContainer.classList.add("img-container");
+
+  //content
+  headline.textContent = object.headline;
+  img.src = object.authorPhoto;
+  authorName.textContent = object.authorName;
+
+  return card;
+}
+const cards = document.querySelector(".cards-container ");
