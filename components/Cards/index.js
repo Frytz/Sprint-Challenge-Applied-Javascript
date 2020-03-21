@@ -17,3 +17,19 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+// the GET
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then(res => {
+    console.log(`Checking the GET`, Object.values(res.data.articles));
+    Object.values(res.data.articles).forEach(a => {
+      a.forEach(b => {
+        cards.append(cardMaker(b));
+      });
+    });
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+// make card
